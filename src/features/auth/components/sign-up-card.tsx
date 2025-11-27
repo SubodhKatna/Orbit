@@ -92,7 +92,7 @@ export const SignUpCard = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      type="name"
+                      type="text"
                       placeholder="Enter your name"
                     />
                   </FormControl>
