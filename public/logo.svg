@@ -1,0 +1,99 @@
+<!-- ORBIT Tech Logo - Scalable SVG -->
+<!-- Notes:
+  - Edit colors, stroke widths, and font as needed.
+  - Uses a system font fallback; replace with your brand font if required.
+  - ViewBox is set for easy scaling. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400">
+  <defs>
+    <!-- Colors -->
+    <linearGradient id="planetFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4db2ff"/>
+      <stop offset="100%" stop-color="#1f6fff"/>
+    </linearGradient>
+    <linearGradient id="ringGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8fd3ff"/>
+      <stop offset="100%" stop-color="#2e8cff"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background (transparent) -->
+  <rect x="0" y="0" width="100%" height="100%" fill="none"/>
+
+  <!-- Layout guide: left emblem, right wordmark -->
+  <g transform="translate(80,60)">
+    <!-- Planet circle -->
+    <circle cx="120" cy="120" r="85" fill="url(#planetFill)"/>
+
+    <!-- Orbiting ring (tilted ellipse) -->
+    <g transform="rotate(-18,120,120)">
+      <ellipse cx="120" cy="120" rx="130" ry="48"
+               fill="none" stroke="url(#ringGradient)" stroke-width="14" />
+      <!-- Ring highlights -->
+      <ellipse cx="120" cy="120" rx="130" ry="48"
+               fill="none" stroke="white" stroke-opacity="0.25" stroke-width="3" />
+    </g>
+
+    <!-- Cable 1: USB (top-right sweep) -->
+    <g filter="url(#softGlow)">
+      <!-- Cable path -->
+      <path d="M 90 65 C 145 40, 200 45, 230 80
+               C 255 110, 235 145, 210 155"
+            fill="none" stroke="#1f6fff" stroke-width="10" stroke-linecap="round"/>
+      <!-- USB plug -->
+      <g transform="translate(230,80) rotate(25)">
+        <rect x="-18" y="-9" width="36" height="18" rx="3" fill="#1f6fff"/>
+        <rect x="18" y="-6" width="8" height="12" rx="2" fill="#1f6fff"/>
+        <!-- USB face details -->
+        <rect x="-8" y="-4" width="6" height="8" fill="#ffffff" opacity="0.9"/>
+        <rect x="2" y="-4" width="6" height="8" fill="#ffffff" opacity="0.9"/>
+      </g>
+    </g>
+
+    <!-- Cable 2: round connector (bottom-left sweep) -->
+    <g filter="url(#softGlow)">
+      <!-- Cable path -->
+      <path d="M 150 180 C 115 210, 70 225, 35 215
+               C 5 205, 10 175, 25 160"
+            fill="none" stroke="#0c4fd6" stroke-width="10" stroke-linecap="round"/>
+      <!-- Round plug -->
+      <g transform="translate(25,160)">
+        <circle cx="0" cy="0" r="12" fill="#0c4fd6"/>
+        <circle cx="0" cy="0" r="5" fill="#ffffff" opacity="0.9"/>
+      </g>
+    </g>
+
+    <!-- Small geometric sparks around the emblem -->
+    <g fill="#2e8cff">
+      <!-- diamonds -->
+      <rect x="35" y="75" width="10" height="10" transform="rotate(45 40 80)"/>
+      <rect x="210" y="190" width="9" height="9" transform="rotate(45 214.5 194.5)"/>
+      <!-- squares -->
+      <rect x="165" y="35" width="8" height="8" />
+      <rect x="65" y="205" width="7" height="7" />
+      <!-- tiny dots -->
+      <circle cx="245" cy="120" r="3"/>
+      <circle cx="95" cy="30" r="3"/>
+    </g>
+  </g>
+
+  <!-- Wordmark: ORBIT -->
+  <g transform="translate(360,95)">
+    <!-- Replace font-family with your brand typeface if needed -->
+    <text x="0" y="120"
+          font-family="Segoe UI, Arial, Helvetica, sans-serif"
+          font-weight="800"
+          font-size="150"
+          letter-spacing="4"
+          fill="#1f6fff">ORBIT</text>
+
+    <!-- Optional underline accent -->
+    <rect x="-5" y="140" width="515" height="12" rx="6" fill="#2e8cff" opacity="0.35"/>
+  </g>
+</svg>
